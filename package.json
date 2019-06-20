@@ -1,0 +1,22 @@
+{
+  "name": "tezbridge-docs",
+  "version": "1.0.0",
+  "description": "Documents for TezBridge",
+  "scripts": {
+    "dev": "vuepress dev",
+    "build": "vuepress build -d docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tezbridge/docs.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tezbridge/docs/issues"
+  },
+  "homepage": "https://github.com/tezbridge/docs#readme",
+  "devDependencies": {
+    "vuepress": "^1.0.1"
+  }
+}
