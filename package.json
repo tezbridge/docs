@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Documents for TezBridge",
   "scripts": {
-    "dev": "vuepress dev",
-    "build": "vuepress build -d docs"
+    "dev": "vuepress dev src",
+    "build": "vuepress build src -d docs"
   },
   "repository": {
     "type": "git",
