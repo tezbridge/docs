@@ -4,7 +4,7 @@
   "description": "Documents for TezBridge",
   "scripts": {
     "dev": "vuepress dev src",
-    "build": "vuepress build src -d docs"
+    "build": "vuepress build src -d docs && cp CNAME docs/"
   },
   "repository": {
     "type": "git",
