@@ -1,4 +1,14 @@
----
-home: true
-footer: MIT Licensed | Copyright © 2019 TezBridge
----
+# Introduction
+TezBridge is a connector between Tezos and DApps.
+
+## How it works
+...
+
+## Features
+...
+
+## Quick link
+...
+
+## FAQ
+...

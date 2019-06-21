@@ -1,13 +1,38 @@
 module.exports = {
-  title: 'TezBridge documentation',
-  description: 'Documentation for TezBridge',
   head: [
-    ['link', { rel: 'icon', href: 'https://next.tezbridge.com/favicon.90b42df8.png' }]
+    ['link', { rel: 'icon', href: 'https://www.tezbridge.com/favicon.90b42df8.png' }]
   ],
   themeConfig: {
+    displayAllHeaders: true,
     logo: 'https://avatars2.githubusercontent.com/u/33521489?s=200&v=4',
     nav: [
-      { text: 'Github', link: 'https://github.com/tezbridge' }
+      {text: 'Github', link: 'https://github.com/tezbridge'}
+    ],
+    sidebar: [
+      {
+        title: 'Guide',
+        children: [
+          '/'
+        ]
+      },
+      {
+        title: 'User manual',
+        children: [
+          '/user'
+        ]
+      },
+      {
+        title: 'Developer manual',
+        children: [
+          '/developer'
+        ]
+      },
+      {
+        title: 'Complete sample',
+        children: [
+          '/sample'
+        ]
+      }
     ]
   }
 }
