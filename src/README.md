@@ -1,14 +1,25 @@
 # Introduction
-TezBridge is a connector between Tezos and DApps.
+TezBridge is a connector between Tezos and DApps. 
 
 ## How it works
-...
+Tezbridge consists of two kinds of signers.
 
-## Features
-...
+#### Local signer
+```
+               window.postMessage
+DApp window  <-------------------->  TezBridge window 
 
-## Quick link
-...
+In the same browser on one computer / mobile
+```
+
+#### Remote signer
+```
+             window.postMessage                           WebRTC
+DApp window <------------------->  TezBridge window A  <---------->  TezBridge window B
+
+The DApp window and TezBridge window A should be in the same browser.
+The TezBridge window B can be in other browser or computer in the same LAN network.
+```
 
 ## FAQ
 ...
