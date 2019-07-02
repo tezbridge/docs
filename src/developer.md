@@ -67,7 +67,8 @@ Originate a new account with no script. In Tezos, one manager(`tz1`) can create 
 const result = await tezbridge.request({
   method: 'create_account',
   // balance: '10',
-  // delegatable: true
+  // delegatable: true,
+  // delegate: 'tz...'
 })
 ```
 
@@ -83,8 +84,82 @@ const result = await tezbridge.request({
 Set delegate for source.
 
 ```javascript
-const result = tezbridge.request({
+const result = await tezbridge.request({
   method: 'set_delegate',
   delegate: 'tz...'    // The tz address of any baker
 })
+```
+
+`result` example:
+```javascript
+{
+  "operation_id": "opZQ3Zhov9gDdc3jhtcJDbqfiQqXDffU1KZAsNbhfa9HnAEMgru"
+}
+```
+
+### Sign operation bytes
+
+```javascript
+const result = await tezbridge.request({
+  method: 'raw_sign',
+  bytes: 'xxx'    // Any operation bytes as string
+})
+```
+
+`result` example:
+```javascript
+"edsigtsScTc85szACiF6SDHEmJ5uQ3Y3JsSebUNhGK5TcVmxAv33u9M58i1cXEzxtgMU5qmJpJgCDnUf1Q5WdBQxcTTdf4iF3DM"
+```
+
+### Inject signed operation bytes
+
+```javascript
+const result = await tezbridge.request({
+  method: 'raw_inject',
+  bytes: 'xxx'    // Operation bytes with signature
+})
+```
+`result` example:
+```javascript
+{
+  "operation_id":"op5eLBGL52riYQ6PZjTFqTEUFUKQrXVy4e6t1woceinSfTYaFt5",
+  "originated_contracts":[]
+}
+```
+
+### Sign and inject operations
+
+```javascript
+const result = await tezbridge.request({
+  method: 'inject_operations',
+  operations: [
+    {
+      kind: 'transaction',
+      amount: '10',
+      destination: 'tz2L2HuhaaSnf6ShEDdhTEAr5jGPWPNwpvcB'
+    },
+    {
+      kind: 'origination',
+      balance: '5',
+      spendable: false,
+      delegatable: false,
+      script: {
+        code: [{"prim":"parameter","args":[{"prim":"contract","args":[{"prim":"unit"}],"annots":[":X"]}]},{"prim":"storage","args":[{"prim":"unit"}]},{"prim":"code","args":[[{"prim":"CDR","annots":["@storage_slash_1"]},{"prim":"NIL","args":[{"prim":"operation"}]},{"prim":"PAIR"}]]}],
+        storage: {"prim":"Unit"}
+      }
+    }
+  ]
+})
+```
+
+`result` example:
+```javascript
+{
+  "operation_id": "ooFVQDdCYmP9iS2sQgeBGDSgkNfeQRMJkTeeCNFLMNY5Tqw7Zja",
+  "originated_contracts": [
+    [
+      "KT1ESBTJodKLxt5X2YRkdYsV7zu7KYUtsMyt"
+    ]
+  ]
+}
 ```
