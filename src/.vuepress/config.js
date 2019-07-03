@@ -11,24 +11,28 @@ module.exports = {
     sidebar: [
       {
         title: 'Guide',
+        collapsable: false,
         children: [
           '/'
         ]
       },
       {
         title: 'User manual',
+        collapsable: false,
         children: [
           '/user'
         ]
       },
       {
         title: 'Developer manual',
+        collapsable: false,
         children: [
           '/developer'
         ]
       },
       {
         title: 'Complete sample',
+        collapsable: false,
         children: [
           '/sample'
         ]

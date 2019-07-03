@@ -8,43 +8,11 @@ Adding the `plugin.js` into the HTML file head field.
 ```html
 <script src="https://www.tezbridge.com/plugin.js"></script>
 ```
+
 ## TezBridge object
 
 Then you can access the `tezbridge` object to interact with TezBridge.
 
-### How `request` works
-
-```
-Symbol DAPP is the window holding DApp website
-Symbol SIGNER is the window holding TezBridge signer
-
-DAPP: tezbridge.request(req_object) 
-               |
-               |   DAPP: post the req_object message to SIGNER
-               |
-               V                no
-      SIGNER: detect if -----------------> SIGNER: wait until the user 
-          there is                            selects a manager
-        a working signer                     as the working signer             
-               |                                     |
-               | yes                                 |
-               |                                     |
-               | <------------------------------------
-               |
-               V                   reject
-      SIGNER: ask for permission -----------> SIGNER: post the reject message 
-               |                                         to DAPP 
-               | approve                       
-               |                          
-               V                          
-      SIGNER: do operations ----------------------        
-               |                                 |
-               |                                 |
-               | success                         | failure
-               V                                 V
-      SIGNER: post the result         SIGNER: post the error
-          message to DAPP                 message to DAPP
-```
 
 ### Get the source
 Source is the address used to be the caller of a transaction. The address can be started with either `KT1` or `tz1`.
@@ -162,4 +130,39 @@ const result = await tezbridge.request({
     ]
   ]
 }
+```
+
+
+### How `request` works
+
+```
+Symbol DAPP is the window holding the DApp website
+Symbol SIGNER is the window holding the TezBridge signer
+
+DAPP: tezbridge.request(req_object) 
+               |
+               |   DAPP: post the req_object message to SIGNER
+               |
+               V                no
+      SIGNER: detect if -----------------> SIGNER: wait until the user 
+          there is                            selects a manager
+        a working signer                     as the working signer             
+               |                                     |
+               | yes                                 |
+               |                                     |
+               | <------------------------------------
+               |
+               V                   reject
+      SIGNER: ask for permission -----------> SIGNER: post the reject message 
+               |                                         to DAPP 
+               | approve                       
+               |                          
+               V                          
+      SIGNER: do operations ----------------------        
+               |                                 |
+               |                                 |
+               | success                         | failure
+               V                                 V
+      SIGNER: post the result         SIGNER: post the error
+          message to DAPP                 message to DAPP
 ```
