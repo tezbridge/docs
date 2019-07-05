@@ -31,6 +31,13 @@ module.exports = {
         ]
       },
       {
+        title: 'Playground',
+        collapsable: false,
+        children: [
+          '/playground'
+        ]
+      },
+      {
         title: 'Complete sample',
         collapsable: false,
         children: [

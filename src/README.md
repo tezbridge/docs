@@ -1,5 +1,5 @@
 # Introduction
-TezBridge is a connector between Tezos and DApps. 
+TezBridge is a connector between Tezos and DApps. It runs on morden browsers and needs no browser-plugin installation.
 
 ## How it works
 Tezbridge consists of two kinds of signers.

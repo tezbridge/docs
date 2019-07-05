@@ -20,9 +20,9 @@ It should contain these abilities:
 
 There are two main concepts in the Tezos smart contract system you need to know, storage and entry.
 
-**Storage** is like database for backend. It holds the data and can be manipulated by it's contract script.
+**Storage** is like database for backend. It holds the data and can be manipulated by its contract script.
 
-**Entry** is like the public API of a contract. You can call(transfer to) the contract though it's multiple entires only.
+**Entry** is like the public API of a contract. You can call(transfer to) the contract though its multiple entires only.
 
 ### If you want to use [Liquidity](http://www.liquidity-lang.org/)
 Let's create a file named `hodl.liq`:
