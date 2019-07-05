@@ -66,7 +66,7 @@ let%entry set_locker (time : timestamp) storage =
 ```
 
 Then compile the `hodl.liq` file with this command:
-```shell
+```sh
 liquidity hodl.liq --json --no-annot
 ```
 Now we get a compiled file named **`hodl.tz.json`**.

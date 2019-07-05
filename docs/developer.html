@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <link rel="icon" href="https://www.tezbridge.com/favicon.90b42df8.png">
     
-    <link rel="preload" href="/assets/css/0.styles.84802266.css" as="style"><link rel="preload" href="/assets/js/app.6c247a37.js" as="script"><link rel="preload" href="/assets/js/2.61a3d885.js" as="script"><link rel="preload" href="/assets/js/6.4f81eb5c.js" as="script"><link rel="prefetch" href="/assets/js/3.c318f124.js"><link rel="prefetch" href="/assets/js/4.2ca7c99c.js"><link rel="prefetch" href="/assets/js/5.ba6b8638.js"><link rel="prefetch" href="/assets/js/7.2954c358.js"><link rel="prefetch" href="/assets/js/8.7c1a0bdf.js"><link rel="prefetch" href="/assets/js/9.36df3696.js">
+    <link rel="preload" href="/assets/css/0.styles.84802266.css" as="style"><link rel="preload" href="/assets/js/app.d13f8583.js" as="script"><link rel="preload" href="/assets/js/2.61a3d885.js" as="script"><link rel="preload" href="/assets/js/6.9b3e9655.js" as="script"><link rel="prefetch" href="/assets/js/10.3fa139c5.js"><link rel="prefetch" href="/assets/js/3.324de32b.js"><link rel="prefetch" href="/assets/js/4.2ca7c99c.js"><link rel="prefetch" href="/assets/js/5.ebcf3b18.js"><link rel="prefetch" href="/assets/js/7.6aeb4939.js"><link rel="prefetch" href="/assets/js/8.f903344b.js"><link rel="prefetch" href="/assets/js/9.090ec964.js">
     <link rel="stylesheet" href="/assets/css/0.styles.84802266.css">
   </head>
   <body>
@@ -15,37 +15,8 @@
   Github
   <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://github.com/tezbridge" target="_blank" rel="noopener noreferrer" class="nav-link external">
   Github
-  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Guide</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>User manual</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Developer manual</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/developer.html" class="active sidebar-link">Getting started</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/developer.html#plugin-file" class="sidebar-link">Plugin file</a></li><li class="sidebar-sub-header"><a href="/developer.html#tezbridge-object" class="sidebar-link">TezBridge object</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Complete sample</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="getting-started"><a href="#getting-started" aria-hidden="true" class="header-anchor">#</a> Getting started</h1> <p>Deveopers can easily integrated TezBridge into their DApps websites.</p> <h2 id="plugin-file"><a href="#plugin-file" aria-hidden="true" class="header-anchor">#</a> Plugin file</h2> <p>Adding the <code>plugin.js</code> into the HTML file head field.</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>https://www.tezbridge.com/plugin.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
-</code></pre></div><h2 id="tezbridge-object"><a href="#tezbridge-object" aria-hidden="true" class="header-anchor">#</a> TezBridge object</h2> <p>Then you can access the <code>tezbridge</code> object to interact with TezBridge.</p> <h3 id="how-request-works"><a href="#how-request-works" aria-hidden="true" class="header-anchor">#</a> How <code>request</code> works</h3> <div class="language- extra-class"><pre class="language-text"><code>Symbol DAPP is the window holding DApp website
-Symbol SIGNER is the window holding TezBridge signer
-
-DAPP: tezbridge.request(req_object) 
-               |
-               |   DAPP: post the req_object message to SIGNER
-               |
-               V                no
-      SIGNER: detect if -----------------&gt; SIGNER: wait until the user 
-          there is                            selects a manager
-        a working signer                     as the working signer             
-               |                                     |
-               | yes                                 |
-               |                                     |
-               | &lt;------------------------------------
-               |
-               V                   reject
-      SIGNER: ask for permission -----------&gt; SIGNER: post the reject message 
-               |                                         to DAPP 
-               | approve                       
-               |                          
-               V                          
-      SIGNER: do operations ----------------------        
-               |                                 |
-               |                                 |
-               | success                         | failure
-               V                                 V
-      SIGNER: post the result         SIGNER: post the error
-          message to DAPP                 message to DAPP
-</code></pre></div><h3 id="get-the-source"><a href="#get-the-source" aria-hidden="true" class="header-anchor">#</a> Get the source</h3> <p>Source is the address used to be the caller of a transaction. The address can be started with either <code>KT1</code> or <code>tz1</code>.</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">const</span> address <span class="token operator">=</span> <span class="token keyword">await</span> tezbridge<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">{</span>method<span class="token punctuation">:</span> <span class="token string">'get_source'</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Guide</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/" class="sidebar-link">Introduction</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>User manual</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/user.html" class="sidebar-link">How to list</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Developer manual</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/developer.html" class="active sidebar-link">Getting started</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/developer.html#plugin-file" class="sidebar-link">Plugin file</a></li><li class="sidebar-sub-header"><a href="/developer.html#tezbridge-object" class="sidebar-link">TezBridge object</a></li></ul></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Playground</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/playground.html" class="sidebar-link">Playground</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Complete sample</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/sample.html" class="sidebar-link">DApp with TezBridge starting from zero</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="getting-started"><a href="#getting-started" aria-hidden="true" class="header-anchor">#</a> Getting started</h1> <p>Deveopers can easily integrated TezBridge into their DApps websites.</p> <h2 id="plugin-file"><a href="#plugin-file" aria-hidden="true" class="header-anchor">#</a> Plugin file</h2> <p>Adding the <code>plugin.js</code> into the HTML file head field.</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>https://www.tezbridge.com/plugin.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h2 id="tezbridge-object"><a href="#tezbridge-object" aria-hidden="true" class="header-anchor">#</a> TezBridge object</h2> <p>Then you can access the <code>tezbridge</code> object to interact with TezBridge.</p> <h3 id="get-the-source"><a href="#get-the-source" aria-hidden="true" class="header-anchor">#</a> Get the source</h3> <p>Source is the address used to be the caller of a transaction. The address can be started with either <code>KT1</code> or <code>tz1</code>.</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">const</span> address <span class="token operator">=</span> <span class="token keyword">await</span> tezbridge<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">{</span>method<span class="token punctuation">:</span> <span class="token string">'get_source'</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre></div><p><code>address</code> example:</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token string">&quot;tz1TJCwoX79reCZ8yccPeW8iB9Mba91v8H47&quot;</span>
 </code></pre></div><p>Please notice that this request needs no permission from the user.</p> <h3 id="create-new-account"><a href="#create-new-account" aria-hidden="true" class="header-anchor">#</a> Create new account</h3> <p>Originate a new account with no script. In Tezos, one manager(<code>tz1</code>) can create many accounts(<code>KT1</code>) and smart contracts(also <code>KT1</code>).</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> tezbridge<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   method<span class="token punctuation">:</span> <span class="token string">'create_account'</span><span class="token punctuation">,</span>
@@ -105,15 +76,44 @@ DAPP: tezbridge.request(req_object)
     <span class="token punctuation">]</span>
   <span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
+</code></pre></div><h3 id="how-request-works"><a href="#how-request-works" aria-hidden="true" class="header-anchor">#</a> How <code>request</code> works</h3> <div class="language- extra-class"><pre class="language-text"><code>Symbol DAPP is the window holding the DApp website
+Symbol SIGNER is the window holding the TezBridge signer
+
+DAPP: tezbridge.request(req_object) 
+               |
+               |   DAPP: post the req_object message to SIGNER
+               |
+               V                no
+      SIGNER: detect if -----------------&gt; SIGNER: wait until the user 
+          there is                            selects a manager
+        a working signer                     as the working signer             
+               |                                     |
+               | yes                                 |
+               |                                     |
+               | &lt;------------------------------------
+               |
+               V                   reject
+      SIGNER: ask for permission -----------&gt; SIGNER: post the reject message 
+               |                                         to DAPP 
+               | approve                       
+               |                          
+               V                          
+      SIGNER: do operations ----------------------        
+               |                                 |
+               |                                 |
+               | success                         | failure
+               V                                 V
+      SIGNER: post the result         SIGNER: post the error
+          message to DAPP                 message to DAPP
 </code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
         ←
         <a href="/user.html" class="prev">
           How to list
-        </a></span> <span class="next"><a href="/sample.html">
-          DApp with TezBridge from zero
+        </a></span> <span class="next"><a href="/playground.html">
+          Playground
         </a>
         →
       </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.6c247a37.js" defer></script><script src="/assets/js/2.61a3d885.js" defer></script><script src="/assets/js/6.4f81eb5c.js" defer></script>
+    <script src="/assets/js/app.d13f8583.js" defer></script><script src="/assets/js/2.61a3d885.js" defer></script><script src="/assets/js/6.9b3e9655.js" defer></script>
   </body>
 </html>
