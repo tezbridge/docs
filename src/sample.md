@@ -71,6 +71,110 @@ liquidity hodl.liq --json --no-annot
 ```
 Now we get a compiled file named **`hodl.tz.json`**.
 
-## Step3: ...
+## Step3: Originate the smart contract
+
+### 1) We need an initial storage
+Smart contracts in Tezos blockchain can store data in their respective storages. So we need to set an initial storage for contract origination.
+
+The storage type of HODL contract is:
+```
+(pair address timestamp)
+```
+And the JSON representation is:
+```json
+// it's a type
+{
+  "prim": "pair",
+  "args": [{
+    "prim": "address"
+  }, {
+    "prim": "timestamp"
+  }]
+}
+```
+
+Remember that it's a type of the storage, so we should construct the data of the storage according to the type above.
+
+```javascript
+const hodl_init_storage = {
+  "prim": "Pair",
+  "args": [{
+    "string": "tz1..."  // this should be the owner of the contract, use your FaucetA's manager
+  }, {
+    "int": "0"  // no lock
+  }]
+}
+```
+
+
+### 2) Build a tool page to originate the contract
+
+`tool.html`:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My tool</title>
+  <script src="https://www.tezbridge.com/plugin.js"></script>
+  <script>
+    // set hodl_code to the content of `hodl.tz.json`
+    const hodl_code = [{"prim":"parameter","args":[{"prim":"or","args":[..."prim":"DROP"}]]}]]}]
+
+    const hodl_init_storage = {
+      "prim": "Pair",
+      "args": [{
+        "string": "tz1..."  // Use your FaucetA's manager
+      }, {
+        "int": "0"
+      }]
+    }
+  </script>
+</head>
+<body>
+  <button onclick="originate_hodl()">Originate HODL contract</button>
+  <pre id="result"></pre>
+
+  <script>
+    const result_elem = document.getElementById('result')
+
+    const originate_hodl = () => {
+      tezbridge.request({
+        method: 'inject_operations',
+        operations: [
+          {
+            kind: 'origination',
+            spendable: false,
+            script: {
+              code: hodl_code,
+              storage: hodl_init_storage
+            }
+          }
+        ]
+      })
+      .then(result => result_elem.innerHTML = JSON.stringify(result))
+      .catch(err => result_elem.innerHTML = JSON.stringify(err))
+    }
+  </script>
+</body>
+</html>
+```
+
+### 3) Host the `tool.html` file
+#### For python users
+```
+python -m SimpleHTTPServer 1234
+```
+
+#### For npm package `http-server` users
+```
+hs -p 1234
+```
+
+#### For parcel-bundler users
+```
+parcel tool.html
+```
+
+### 4) Interacting with TezBridge
 
 ## Step4: ...
