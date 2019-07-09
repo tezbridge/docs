@@ -118,7 +118,7 @@ const hodl_init_storage = {
   <script src="https://www.tezbridge.com/plugin.js"></script>
   <script>
     // set hodl_code to the content of `hodl.tz.json`
-    const hodl_code = [{"prim":"parameter","args":[{"prim":"or","args":[..."prim":"DROP"}]]}]]}]
+    const hodl_code = [{"prim":"parameter"........."prim":"DROP"}]]}]]}]
 
     const hodl_init_storage = {
       "prim": "Pair",
@@ -175,6 +175,33 @@ hs -p 1234
 parcel tool.html
 ```
 
+Now open [http://localhost:1234/tool.html](http://localhost:1234/tool.html) to view the tool page.
+
 ### 4) Interacting with TezBridge
+Click the **Originate HODL contract** button on the tool page and the browser will open a new window with location at `https://www.tezbridge.com/index.html?signer`.
+
+Then go **Local managers -> FaucetA** and enter the locking password you set before. If the password is correct, the TezBridge will automatically show the public hash key(address). Click the `tz1...` address and click `Use as signer`.
+
+You will get noticed that the arrow left to the **DApp requests** is blinking now, which means something is updated. So click the **DApp requests**.
+
+Much useful infomation shows here:
+1. Current manager's address, which indicate the secret key you are using to sign.
+2. Current source's address. You can use any spendable account(KT1 or tz) to be the source, but the manager of the account has to be the current manager from point 1.
+3. Current protocol and RPC host.
+4. The request operation infomation.
+5. Approve and reject button.
+
+Let's click **Approve**. Here are the TezBridge processing steps:
+1. Set all the gas_limit, storage_limit, fee of operations to maximum.
+2. Get operation bytes from RPC node.
+3. Generate operation bytes locally.
+4. Assert the result of 1 and 2 should be equal.
+5. Sign the operation bytes and preapply the signed bytes to get operation result.
+6. Extract the cost gas_limit, storage_limit in operation result and calculate the minimal fee.
+7. Set the gas_limit, storage_limit and the fee to operations.
+8. Get operation bytes from RPC node.
+9. Generate operation bytes locally.
+10. Assert the result of 8 and 9 should be equal.
+11. Sign the operation bytes and inject the signed bytes though the RPC node.
 
 ## Step4: ...
