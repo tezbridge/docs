@@ -204,4 +204,14 @@ Let's click **Approve**. Here are the TezBridge processing steps:
 10. Assert the result of 8 and 9 should be equal.
 11. Sign the operation bytes and inject the signed bytes though the RPC node.
 
-## Step4: ...
+After these steps, the signer page will get the result and post it to our tool page. Switch to our tool page, then you can get the result. 
+
+It should be like this:
+```
+{"operation_id":"ooeAeGG2FXXKCRh................nkf5HC6fmFdJ8HRPy1ga","originated_contracts":[["KT1DY8gJ............rDDRahRcEJHwdoNu"]]}
+```
+
+Now the contract has been originated, you need to keep the originated contract address as **hodl_address**.
+
+## Step4: Create the DApp page
+...
