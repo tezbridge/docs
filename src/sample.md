@@ -25,6 +25,9 @@ There are two main concepts in the Tezos smart contract system you need to know,
 **Entry** is like the public API of a contract. You can call(transfer to) the contract though its multiple entires only.
 
 ### If you want to use [Liquidity](http://www.liquidity-lang.org/)
+
+Here is a linux Liquidity [binary(1.041)](/files/liquidity.bz2) file for those who doesn't want to face the compilation issues.
+
 Let's create a file named `hodl.liq`:
 ```OCaml
 type storage = {
@@ -67,7 +70,7 @@ let%entry set_locker (time : timestamp) storage =
 
 Then compile the `hodl.liq` file with this command:
 ```sh
-liquidity hodl.liq --json --no-annot
+./liquidity hodl.liq --json --no-annot
 ```
 Now we get a compiled file named **`hodl.tz.json`**.
 
@@ -195,23 +198,101 @@ Let's click **Approve**. Here are the TezBridge processing steps:
 1. Set all the gas_limit, storage_limit, fee of operations to maximum.
 2. Get operation bytes from RPC node.
 3. Generate operation bytes locally.
-4. Assert the result of 1 and 2 should be equal.
-5. Sign the operation bytes and preapply the signed bytes to get operation result.
+4. Assert the result of @1 and @2 should be equal.
+5. Run the operation on RPC node to get operation result.
 6. Extract the cost gas_limit, storage_limit in operation result and calculate the minimal fee.
 7. Set the gas_limit, storage_limit and the fee to operations.
 8. Get operation bytes from RPC node.
 9. Generate operation bytes locally.
-10. Assert the result of 8 and 9 should be equal.
+10. Assert the result of @8 and @9 should be equal.
 11. Sign the operation bytes and inject the signed bytes though the RPC node.
 
 After these steps, the signer page will get the result and post it to our tool page. Switch to our tool page, then you can get the result. 
 
 It should be like this:
 ```
-{"operation_id":"ooeAeGG2FXXKCRh................nkf5HC6fmFdJ8HRPy1ga","originated_contracts":[["KT1DY8gJ............rDDRahRcEJHwdoNu"]]}
+{"operation_id":"ooeAeGG2FXXKCRhJoh7VRgUqe4PYdL2nkf5HC6fmFdJ8HRPy1ga","originated_contracts":[["KT1DY8gJ63E7EqpHKLusrDDRahRcEJHwdoNu"]]}
 ```
 
-Now the contract has been originated, you need to keep the originated contract address as **hodl_address**.
+Now the contract has been originated, and the address of our contract on the **alphanet** is `KT1DY8gJ63E7EqpHKLusrDDRahRcEJHwdoNu`.
 
 ## Step4: Create the DApp page
+
+Let's create a new page named `my_hodl.html`:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My HODL</title>
+  <script src="https://www.tezbridge.com/plugin.js"></script>
+</head>
+<body>
+  <div>
+    source: <span id="source"></span>
+    <button onclick="getSource()">Get source</button>
+  </div>
+  <div>
+    <input id="deposit_amount" type="number" />mutez
+    <button>Deposit</button>
+  </div>
+  <div>
+    <input id="withdraw_amount" type="number" />mutez
+    <button>Withdraw</button>
+  </div>
+  <div>
+    <input id="lock_time" type="datetime-local" />
+    <button>Set time lock</button>
+  </div>
+  <!-- Position 1 -->
+</body>
+</html>
+```
+
+The code above is a basic template of our DApp page. Then we'll add the features into it.
+
+### 0) Some definitions
+```javascript
+const hodl_contract = 'KT1DY8gJ63E7EqpHKLusrDDRahRcEJHwdoNu'
+const elems = {
+  state: document.getElementById('state'),
+  source: document.getElementById('source'),
+  deposit_amount: document.getElementById('deposit_amount'),
+  withdraw_amount: document.getElementById('withdraw_amount'),
+  lock_time: document.getElementById('lock_time')
+}
+```
+
+### 1) Get the source of signer
+```javascript
+function getSource() {
+  tezbridge.request({method: 'get_source'})
+  .then(address => elems.source.innerHTML = address)
+  .catch(error => elems.state.innerHTML = error.toString())
+}
+```
+
+### 2) Deposit function
+```javascript
+function deposit(){
+  // The type of amount should be string which repesents `mutez`(1/1000000XTZ)
+  const amount = parseInt(elems.deposit_amount.value).toString()
+
+  tezbridge.request({
+    method: 'inject_operations',
+    operations: [
+      {
+        kind: 'transaction',
+        amount: amount,
+        parameters: {
+          "prim": "Left",
+          "args": [{"prim":"unit"}]
+        }
+      }
+    ]
+  })
+  .then(result => elems.state.innerHTML = JSON.stringify(result))
+  .catch(error => elems.state.innerHTML = error.toString())
+}
+```
+
 ...
