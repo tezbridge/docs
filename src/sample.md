@@ -26,7 +26,7 @@ There are two main concepts in the Tezos smart contract system you need to know,
 
 ### If you want to use [Liquidity](http://www.liquidity-lang.org/)
 
-Here is a linux Liquidity [binary(1.041)](/files/liquidity.bz2) file for those who doesn't want to face the compilation issues.
+Here is a linux Liquidity [binary(1.043)](https://github.com/tezbridge/docs/files/3416729/liquidity-1.043.zip) file for those who doesn't want to face the compilation issues.
 
 Let's create a file named `hodl.liq`:
 ```OCaml

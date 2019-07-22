@@ -23,3 +23,11 @@ The TezBridge window B can be in other browser or computer in the same LAN netwo
 
 ## FAQ
 ...
+
+## Contact
+
+Email: im`@`catsigma.com
+
+Riot: catsigma
+
+Tezos-dev slack: catsigma
