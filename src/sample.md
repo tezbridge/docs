@@ -228,20 +228,23 @@ Let's create a new page named `my_hodl.html`:
 </head>
 <body>
   <div>
+    state: <span id="state"></span>
+  </div>
+  <div>
     source: <span id="source"></span>
     <button onclick="getSource()">Get source</button>
   </div>
   <div>
     <input id="deposit_amount" type="number" />mutez
-    <button>Deposit</button>
+    <button onclick="deposit()">Deposit</button>
   </div>
   <div>
     <input id="withdraw_amount" type="number" />mutez
-    <button>Withdraw</button>
+    <button onclick="withdraw()">Withdraw</button>
   </div>
   <div>
     <input id="lock_time" type="datetime-local" />
-    <button>Set time lock</button>
+    <button onclick="setLocker()">Set time lock</button>
   </div>
   <!-- Position 1 -->
 </body>
@@ -295,4 +298,57 @@ function deposit(){
 }
 ```
 
-...
+### 3) Withdraw function
+```javascript
+function withdraw() {
+  // The type of amount should be string which repesents `mutez`(1/1000000XTZ)
+  const amount = parseInt(elems.withdraw_amount.value).toString()
+
+  tezbridge.request({
+    method: 'inject_operations',
+    operations: [
+      {
+        kind: 'transaction',
+        amount: '0',
+        destination: hodl_contract,
+        parameters: {
+          "prim": "Right",
+          "args": [{
+            "prim": "Left",
+            "args": [{int: amount}]
+          }]
+        }
+      }
+    ]
+  })
+  .then(result => elems.state.innerHTML = JSON.stringify(result))
+  .catch(error => elems.state.innerHTML = error.toString())
+}
+```
+
+### 4) Set locker function
+```javascript
+function setLocker() {
+  const timestamp = (+new Date(elems.lock_time.value) / 1000).toString()
+
+  tezbridge.request({
+    method: 'inject_operations',
+    operations: [
+      {
+        kind: 'transaction',
+        amount: '0',
+        destination: hodl_contract,
+        parameters: {
+          "prim": "Right",
+          "args": [{
+            "prim": "Right",
+            "args": [{int: timestamp}]
+          }]
+        }
+      }
+    ]
+  })
+  .then(result => elems.state.innerHTML = JSON.stringify(result))
+  .catch(error => elems.state.innerHTML = error.toString())
+}
+```
