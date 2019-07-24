@@ -253,7 +253,7 @@ Let's create a new page named `my_hodl.html`:
 
 The code above is a basic template of our DApp page. Then we'll add the features into it.
 
-### 0) Some definitions
+### 1) Some definitions
 ```javascript
 const hodl_contract = 'KT1DY8gJ63E7EqpHKLusrDDRahRcEJHwdoNu'
 const elems = {
@@ -265,7 +265,7 @@ const elems = {
 }
 ```
 
-### 1) Get the source of signer
+### 2) Get the source of signer
 ```javascript
 function getSource() {
   tezbridge.request({method: 'get_source'})
@@ -274,7 +274,7 @@ function getSource() {
 }
 ```
 
-### 2) Deposit function
+### 3) Deposit function
 ```javascript
 function deposit(){
   // The type of amount should be string which repesents `mutez`(1/1000000XTZ)
@@ -298,7 +298,7 @@ function deposit(){
 }
 ```
 
-### 3) Withdraw function
+### 4) Withdraw function
 ```javascript
 function withdraw() {
   // The type of amount should be string which repesents `mutez`(1/1000000XTZ)
@@ -326,7 +326,7 @@ function withdraw() {
 }
 ```
 
-### 4) Set locker function
+### 5) Set locker function
 ```javascript
 function setLocker() {
   const timestamp = (+new Date(elems.lock_time.value) / 1000).toString()
@@ -352,3 +352,28 @@ function setLocker() {
   .catch(error => elems.state.innerHTML = error.toString())
 }
 ```
+
+Now let's append the 5 parts of JavaScript codes into the **Position 1** in the `my_hodl.html`.
+
+And finally we get our `my_hodl.html` prepared. Checkout the raw file [here](https://github.com/tezbridge/docs/files/3425513/my_hodl.zip).
+
+
+## Step5: Interaction between `my_hodl.html` and TezBridge signer
+
+### 1) Host the `my_hodl.html` file
+#### For python users
+```
+python -m SimpleHTTPServer 1234
+```
+
+#### For npm package `http-server` users
+```
+hs -p 1234
+```
+
+#### For parcel-bundler users
+```
+parcel my_hodl.html
+```
+
+Now open [http://localhost:1234/my_hodl.html](http://localhost:1234/my_hodl.html) to view the page.
