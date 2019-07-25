@@ -4,7 +4,7 @@ This is a complete example to represent the whole process of building a simple D
 Notice that you should use `alphanet` with the same protocol as the `mainnet` has to try the following steps.
 
 
-TIPS:
+Tags:
 <style>
 .mark {border-radius: 4px; font-size: 14px; display: inline-block; padding: 2px 6px; color: white;}
 .dapp {background: #5ead35}
