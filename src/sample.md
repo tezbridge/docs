@@ -3,12 +3,29 @@ This is a complete example to represent the whole process of building a simple D
 
 Notice that you should use `alphanet` with the same protocol as the `mainnet` has to try the following steps.
 
+
+TIPS:
+<style>
+.mark {border-radius: 4px; font-size: 14px; display: inline-block; padding: 2px 6px; color: white;}
+.dapp {background: #5ead35}
+.dapp::before {content: 'DApp'}
+.signer {background: #3f69c7}
+.signer:before {content: 'Signer'}
+.remote-signer {background: #ad742e}
+.remote-signer:before {content: 'Remote signer'}
+</style>
+<b class="mark dapp"></b> means the description happens in DApp window.
+
+<b class="mark signer"></b> means the description happens in Signer(TezBridge) window.
+
+<b class="mark remote-signer"></b> means the description happens in the Signer(TezBridge) of another device.
+
 ## Step1: Preparation
 1. Go to [https://faucet.tzalpha.net](https://faucet.tzalpha.net) and get a facuet JSON file.
 2. Open [https://www.tezbridge.com](https://www.tezbridge.com).
-3. Check **Settings > Host** and make sure it's an `alphanet` RPC host. (Like `https://alphanet.tezrpc.me` or `https://alphanet-node.tzscan.io`)
-4. Click **Import key** and paste the content of the facuet JSON file in the input box. Then set the **Manager name** as `FacuetA`, type the locking password and press **Confirm**. (If this manager hasn't been activated before, TezBridge will automatically activate it for you. But it takes one block to confirm the activation.)
-5. After the activation is finished (about one minute), you can check the manager balance by clicking **Local managers > FaucetA > tz1...**
+3. Check **Settings > Host** and make sure it's an `alphanet` RPC host. (Like `https://alphanet.tezrpc.me` or `https://alphanet-node.tzscan.io`) <b class="mark signer"></b>
+4. Click **Import key** and paste the content of the facuet JSON file in the input box. Then set the **Manager name** as `FacuetA`, type the locking password and press **Confirm**. (If this manager hasn't been activated before, TezBridge will automatically activate it for you. But it takes one block to confirm the activation.) <b class="mark signer"></b>
+5. After the activation is finished (about one minute), you can check the manager balance by clicking **Local managers > FaucetA > tz1...** <b class="mark signer"></b>
 
 ## Step2: Create the smart contract
 Let's create a simple XTZ HODL smart contract. 
@@ -181,13 +198,13 @@ parcel tool.html
 Now open [http://localhost:1234/tool.html](http://localhost:1234/tool.html) to view the tool page.
 
 ### 4) Interacting with TezBridge
-Click the **Originate HODL contract** button on the tool page and the browser will open a new window with location at `https://www.tezbridge.com/index.html?signer`.
+Click the **Originate HODL contract** button on the tool page <b class="mark dapp"></b> and the browser will open a new window with location at `https://www.tezbridge.com/index.html?signer` <b class="mark signer"></b>
 
-Then go **Local managers -> FaucetA** and enter the locking password you set before. If the password is correct, the TezBridge will automatically show the public hash key(address). Click the `tz1...` address and click `Use as signer`.
+Then go **Local managers -> FaucetA** and enter the locking password you set before. If the password is correct, the TezBridge will automatically show the public hash key(address). Click the `tz1...` address and click `Use as signer`. <b class="mark signer"></b>
 
-You will get noticed that the arrow left to the **DApp requests** is blinking now, which means something is updated. So click the **DApp requests**.
+You will get noticed that the arrow left to the **DApp requests** is blinking now, which means something is updated. So click the **DApp requests**. <b class="mark signer"></b>
 
-Much useful infomation shows here:
+Much useful infomation shows here  <b class="mark signer"></b>:
 1. Current manager's address, which indicate the secret key you are using to sign.
 2. Current source's address. You can use any spendable account(KT1 or tz) to be the source, but the manager of the account has to be the current manager from point 1.
 3. Current protocol and RPC host.
@@ -207,7 +224,9 @@ Let's click **Approve**. Here are the TezBridge processing steps:
 10. Assert the result of @8 and @9 should be equal.
 11. Sign the operation bytes and inject the signed bytes though the RPC node.
 
-After these steps, the signer page will get the result and post it to our tool page. Switch to our tool page, then you can get the result. 
+After these steps, the signer page will get the result and post it to our tool page. 
+
+Switch to our tool page, then you can get the result.  <b class="mark dapp"></b>
 
 It should be like this:
 ```
