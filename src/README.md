@@ -44,6 +44,23 @@ Q: Will private key be loaded in memory when the mananger is unlocked?
 
 A: Yes. But the private key will be loaded in memory with a transformed form to prevent memory dump attack.
 
+---
+
+Q: What if the server of TezBridge was attacked by hacker?
+
+A: TezBridge is purely static website hosted in Github page with a cloudflare CDN. So there's no server in TezBridge. All possible network connection targets are listed here:
+
+* Tezos official RPC node
+* tzscan.io
+* Cloudflare CDN / Github page
+* Netlify lambda function (used for simple remote bridging)
+
+--- 
+
+Q: Is a hardware Ledger safe to be used in TezBridge?
+
+A: For a normal operation, Ledger will show a detailed operation information(transaction, origination). For a compound operation, both Ledger and TezBridge will show a base58 hash on each side for user to confirm.
+
 ## Contact
 
 Email: im`@`catsigma.com
