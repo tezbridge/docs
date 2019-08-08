@@ -200,9 +200,9 @@ Now open [http://localhost:1234/tool.html](http://localhost:1234/tool.html) to v
 ### 4) Interacting with TezBridge
 Click the **Originate HODL contract** button on the tool page <b class="mark dapp"></b> and the browser will open a new window with location at `https://www.tezbridge.com/index.html?signer` <b class="mark signer"></b>
 
-Then go **Local managers -> FaucetA** and enter the locking password you set before. If the password is correct, the TezBridge will automatically show the public hash key(address). Click the `tz1...` address and click `Use as signer`. <b class="mark signer"></b>
+Then go **Choose signer -> Local managers -> FaucetA** and enter the locking password you set before. If the password is correct, the TezBridge will automatically show the public hash key(address). Click the `tz1...` address and click `Use as signer`. <b class="mark signer"></b>
 
-You will get noticed that the arrow left to the **DApp requests** is blinking now, which means something is updated. So click the **DApp requests**. <b class="mark signer"></b>
+Then a **DApp requests** tab shows up. You will get noticed that the arrow left to the **DApp requests** is blinking now, which means something is updated. So click the **DApp requests**. <b class="mark signer"></b>
 
 Much useful infomation shows here  <b class="mark signer"></b>:
 1. Current manager's address, which indicate the secret key you are using to sign.
@@ -304,6 +304,7 @@ function deposit(){
     operations: [
       {
         kind: 'transaction',
+        destination: hodl_contract,
         amount: amount,
         parameters: {
           "prim": "Left",
@@ -396,3 +397,7 @@ parcel my_hodl.html
 ```
 
 Now open [http://localhost:1234/my_hodl.html](http://localhost:1234/my_hodl.html) to view the page.
+
+Then the interaction are pretty much like what we've described [above](#_4-interacting-with-tezbridge).
+
+(Just replace the `Click Originate HODL contract button` part with different buttons in the `my_hodl.html` page).
