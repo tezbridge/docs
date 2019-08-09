@@ -308,7 +308,7 @@ function deposit(){
         amount: amount,
         parameters: {
           "prim": "Left",
-          "args": [{"prim":"unit"}]
+          "args": [{"prim":"Unit"}]
         }
       }
     ]
