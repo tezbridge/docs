@@ -15,7 +15,7 @@
 
       <div class="block">
         <h2>How to set the RPC host</h2>
-        <p>Set the target RPC host for user. If your website contains both mainnet part and alphanet part. You can ask user to switch the host.</p>
+        <p>Set the target RPC host for user. You can send a request to ask user to switch the RPC host.</p>
         <prism-editor class="editor" v-model="codes.set_host" language="js"></prism-editor>
         <button @click="runCode('set_host')">Get the source</button>
         <pre class="output">Output:
@@ -51,7 +51,7 @@
 
       <div class="block">
         <h2>How to create a KT1 account</h2>
-        <p>By using <b>inject_operations</b> method, you can make a new KT1 account creation request for users.</p>
+        <p>By using <b>inject_operations</b> method, you can make a new KT1 account creation request for users. Notice that TezBridge will actually originate a smart contract (<a target="_blank" href="https://gitlab.com/nomadic-labs/mi-cho-coq/blob/master/src/contracts/manager.tz">manager.tz</a>) simulating the KT1 account in previous protocols.</p>
         <prism-editor class="editor" v-model="codes.create_account" language="js"></prism-editor>
         <button @click="runCode('create_account')">Create KT1 account</button>
         <pre class="output">Output:
@@ -65,6 +65,15 @@
         <button @click="runCode('make_transaction')">Make this transaction</button>
         <pre class="output">Output:
 {{output.make_transaction}}</pre>
+      </div>
+
+      <div class="block">
+        <h2>How to transfer from a KT1 account</h2>
+        <p>In <b>PsBABY5H</b>, KT1 account cannot be source anymore. So we can use the method below to transfer XTZ to any account with <b>unit %default</b> entrypoint from your KT1 account.</p>
+        <prism-editor class="editor" v-model="codes.make_transaction_KT1" language="js"></prism-editor>
+        <button @click="runCode('make_transaction_KT1')">Transfer from KT1</button>
+        <pre class="output">Output:
+{{output.make_transaction_KT1}}</pre>
       </div>
 
       <div class="block">
@@ -100,7 +109,7 @@ export default {
         set_host:
 `tezbridge.request({
   method: 'set_host',
-  host: 'https://alphanet-node.tzscan.io'
+  host: 'https://zeronet-node.tzscan.io'
 })
 .then(address => output(address))
 .catch(err => output(err))
@@ -156,6 +165,24 @@ export default {
 .then(result => output(result))
 .catch(err => output(err))
 `,
+        make_transaction_KT1:
+`tezbridge.request({
+  method: 'inject_operations',
+  operations: [
+    {
+      kind: 'transaction',
+      amount: '0',
+      destination: 'KT1M8MStwA1R5SuGx2V6AMvgd8dGAFYcEUmu',    // Destination should be your KT1 account
+      parameters: {
+        entrypoint: 'do',
+        value: tezbridge.templates.KT1_to_default('tz1SJJY253HoEda8PS5vvfHVtyghgK3CTS2z', '1')    // The amount is in mutez type
+      }
+    }
+  ]
+})
+.then(result => output(result))
+.catch(err => output(err))
+`,
         combination_operations:
 `tezbridge.request({
   method: 'inject_operations',
@@ -163,17 +190,18 @@ export default {
     {
       kind: 'transaction',
       amount: '0',
-      destination: 'KT1FC3JURG6JfU9twPEEz1os97qix9GiEUjw',
-      parameters: {string: "any string"}
+      destination: 'KT1JcVES62nyPqb3JaY2AzVQKmJdj1Ta22Sg',
+      parameters: {
+        entrypoint: 'second',
+        value: {int: '1'}
+      }
     },
     {
       kind: 'origination',
       balance: '0',
-      spendable: false,
-      delegatable: true,
       script: {
-        code: [{"prim":"parameter","args":[{"prim":"contract","args":[{"prim":"unit"}],"annots":[":X"]}]},{"prim":"storage","args":[{"prim":"unit"}]},{"prim":"code","args":[[{"prim":"CDR","annots":["@storage_slash_1"]},{"prim":"NIL","args":[{"prim":"operation"}]},{"prim":"PAIR"}]]}],
-        storage: {"prim":"Unit"}
+        code: [{"prim":"parameter","args":[{"prim":"or","args":[{"prim":"int","annots":["%first"]},{"prim":"or","args":[{"prim":"int","annots":["%second"]},{"prim":"int","annots":["%default"]}]}]}]},{"prim":"storage","args":[{"prim":"unit"}]},{"prim":"code","args":[[{"prim":"DUP"},{"prim":"DIP","args":[[{"prim":"CDR"}]]},{"prim":"CAR"},{"prim":"DUP"},{"prim":"IF_LEFT","args":[[{"prim":"DROP"},[{"prim":"DIP","args":[[{"prim":"DUP"}]]},{"prim":"SWAP"}],{"prim":"NIL","args":[{"prim":"operation"}]},{"prim":"PAIR"}],[{"prim":"IF_LEFT","args":[[{"prim":"DROP"},[{"prim":"DIP","args":[[{"prim":"DUP"}]]},{"prim":"SWAP"}],{"prim":"NIL","args":[{"prim":"operation"}]},{"prim":"PAIR"}],[{"prim":"DROP"},[{"prim":"DIP","args":[[{"prim":"DUP"}]]},{"prim":"SWAP"}],{"prim":"NIL","args":[{"prim":"operation"}]},{"prim":"PAIR"}]]}]]},{"prim":"DIP","args":[[{"prim":"DROP"},{"prim":"DROP"}]]}]]}],
+        storage: {prim: 'Unit'}
       }
     }
   ]
@@ -190,6 +218,7 @@ export default {
         raw_inject: '',
         create_account: '',
         make_transaction: '',
+        make_transaction_KT1: '',
         combination_operations: ''
       }
     }
@@ -207,4 +236,6 @@ export default {
 .title {display: block; cursor: pointer; padding: 2px 0; background: #3eaf7c; text-align: center; color: white; font-weight: 700; font-size: 16px; transition: all 0.5s;}
 .title.opened {background: #9ddec1}
 .output {color: white;}
+button { transition: all 0.2s; cursor: pointer; border: 2px solid #3eaf7c; padding: 4px 8px; border-radius: 4px; background: #e8f7f0; color: #3eaf7c }
+button:hover { color: white; background: #3eaf7c }
 </style>

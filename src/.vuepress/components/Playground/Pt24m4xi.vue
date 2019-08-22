@@ -15,7 +15,7 @@
 
       <div class="block">
         <h2>How to set the RPC host</h2>
-        <p>Set the target RPC host for user. If your website contains both mainnet part and alphanet part. You can ask user to switch the host.</p>
+        <p>Set the target RPC host for user. You can send a request to ask user to switch the RPC host.</p>
         <prism-editor class="editor" v-model="codes.set_host" language="js"></prism-editor>
         <button @click="runCode('set_host')">Get the source</button>
         <pre class="output">Output:
@@ -207,4 +207,6 @@ export default {
 .title {display: block; cursor: pointer; padding: 2px 0; background: #3eaf7c; text-align: center; color: white; font-weight: 700; font-size: 16px; transition: all 0.5s;}
 .title.opened {background: #9ddec1}
 .output {color: white;}
+button { transition: all 0.2s; cursor: pointer; border: 2px solid #3eaf7c; padding: 4px 8px; border-radius: 4px; background: #e8f7f0; color: #3eaf7c }
+button:hover { color: white; background: #3eaf7c }
 </style>
