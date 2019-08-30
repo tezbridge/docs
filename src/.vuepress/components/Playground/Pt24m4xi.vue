@@ -17,7 +17,7 @@
         <h2>How to set the RPC host</h2>
         <p>Set the target RPC host for user. You can send a request to ask user to switch the RPC host.</p>
         <prism-editor class="editor" v-model="codes.set_host" language="js"></prism-editor>
-        <button @click="runCode('set_host')">Get the source</button>
+        <button @click="runCode('set_host')">Set the RPC host</button>
         <pre class="output">Output:
 {{output.set_host}}</pre>
       </div>
