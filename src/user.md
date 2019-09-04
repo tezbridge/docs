@@ -22,6 +22,9 @@ At the index page of TezBridge, go **Create key -> P256**.
 <gif-loader src="/imgs/create_key_p256.gif" />
 
 ## Importing secret key
+At the index page of TezBridge, go **Import key**.
+
+<gif-loader src="/imgs/import_key.gif" />
 
 ## Checking manager status
 
