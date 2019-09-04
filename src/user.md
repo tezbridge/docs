@@ -1,16 +1,25 @@
 # How to
 
 ## Creating new key
-### By mnemonic words
+### Though mnemonic words
 At the index page of TezBridge, go **Create key -> Mnemonic**.
 
 <gif-loader src="/imgs/create_key_mnemonic.gif" />
 
-### By Ed25519
+### Though Ed25519
+At the index page of TezBridge, go **Create key -> Ed25519**.
 
-### By Secp256k1
+<gif-loader src="/imgs/create_key_ed25519.gif" />
 
-### By NIST P256
+### Though Secp256k1
+At the index page of TezBridge, go **Create key -> Secp256k1**.
+
+<gif-loader src="/imgs/create_key_secp256k1.gif" />
+
+### Though NIST P256
+At the index page of TezBridge, go **Create key -> P256**.
+
+<gif-loader src="/imgs/create_key_p256.gif" />
 
 ## Importing secret key
 
