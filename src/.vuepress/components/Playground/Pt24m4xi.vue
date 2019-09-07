@@ -41,8 +41,11 @@
       </div>
 
       <div class="block">
-        <h2>How to inject a signed operation binary</h2>
-        <p>You can inject a signed operation binary into the chain by this method. Please notice that binary data should be hex string.</p>
+        <h2>How to inject operation bytes</h2>
+        <p>You can inject operation bytes into the chain by this method. Please notice that binary data should be hex string. The <b>signature</b> and the <b>sign_bytes</b> fields are optional.</p>
+        <p>If no <b>signature</b> or <b>sign_bytes</b> is set, then the <b>bytes</b> value must contain the signature at the end.</p>
+        <p>If <b>signature</b> is set, the <b>bytes</b> value should not contain the signature. And TezBridge will concat the bytes and signature for you.</p>
+        <p>If <b>sign_bytes</b> is set, the <b>bytes</b> value should not contain the signature. Then TezBridge will sign the bytes and concat them for you.</p>
         <prism-editor class="editor" v-model="codes.raw_inject" language="js"></prism-editor>
         <button @click="runCode('raw_inject')">Inject the operation binary</button>
         <pre class="output">Output:
@@ -124,7 +127,9 @@ export default {
         raw_inject:
 `tezbridge.request({
   method: 'raw_inject',
-  bytes: ''    // Hex operation bytes with signature
+  sign_bytes: true,
+  // signature: 'edsig...',
+  bytes: ''    // Hex operation bytes
 })
 .then(result => output(result))
 .catch(err => output(err))
