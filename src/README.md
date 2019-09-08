@@ -1,7 +1,32 @@
 # Introduction
-TezBridge is a connector between Tezos and DApps. It runs on morden browsers and needs no browser-plugin installation.
+TezBridge is a connector between Tezos and DApps. It works on both desktop and mobile devices and, furthermore, users can run DApp on device A and sign operations on device B under local area network.
 
-## How it works
+Since TezBridge is a pure web application, a modern web browser is the only software required.
+
+## What is TezBridge capable of?
+### Key generation
+People can generate all kinds of keys(ed25519/secp256k1/p256) supported in Tezos with passwords. The mnemonic generation supports Ledger compatible path derivation, which means you can generate the key before you buy the Ledger and later import it into the hardware.
+
+### Key import
+People can import all kinds of keys into the TezBridge(ed25519/secp256k1/p256/mnemonic/faucet). It also support path derivation when importing mnemonic. So it means if you accidentally lose your Ledger, you can directly access the wallet with no waiting.
+
+### Local signer
+It's something like MetaMask for Ethereum. The user unlocks a pre-stored manager and the local signer signs the operations requested by a DApp website. 
+
+### Remote signer
+In local area network(LAN), a user can sign requests from the DApp in other devices. There are several good parts about it:
+1. You don't need to import your key everywhere. Just import your key on the TezBridge in your mobile, your key is able to sign any DApp's request from any browser in LAN.
+2. You don't need to plug the Ledger everywhere. Let's assume you are the manager in the office and you need to authorize some OA DApp requests for routine. Then you can just plug the Ledger to your computer and sign data for your colleagues.
+
+### Hardware signer
+TezBridge currently supports Ledger with USB port. It can also be used as a remote signer like this.
+```
+DApp window <------->  TezBridge window A  <------>  TezBridge window B
+                           as tunnel                        |
+                                                     pluged with Ledger
+```
+
+## How TezBridge works
 Tezbridge consists of two kinds of signers.
 
 #### Local signer
