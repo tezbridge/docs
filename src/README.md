@@ -3,6 +3,11 @@ TezBridge is a connector between Tezos and DApps. It works on both desktop and m
 
 Since TezBridge is a pure web application, a modern web browser is the only software required.
 
+## Why do we need TezBridge?
+1. No plugin or App installation is needed.
+2. Same DApp experience across desktop computer and mobile devices.
+3. Powerful tools for Tezos are included.
+
 ## What is TezBridge capable of?
 ### Key generation
 People can generate all kinds of keys(ed25519/secp256k1/p256) supported in Tezos with passwords. The mnemonic generation supports Ledger compatible path derivation, which means you can generate the key before you buy the Ledger and later import it into the hardware.
