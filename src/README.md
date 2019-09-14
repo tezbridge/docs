@@ -3,6 +3,13 @@ TezBridge is a connector between Tezos and DApps. It works on both desktop and m
 
 Since TezBridge is a pure web application, a modern web browser is the only software required.
 
+## Community
+Telegram channel: [https://t.me/tezbridge](https://t.me/tezbridge)
+
+Riot.im channel: [https://riot.im/app/#/room/#tezbridge-dev:matrix.org](https://riot.im/app/#/room/#tezbridge-dev:matrix.org)
+
+Slack channel: [https://tezos-dev.slack.com/messages/tezbridge/](https://tezos-dev.slack.com/messages/tezbridge/)
+
 ## Why do we need TezBridge?
 1. No plugin or App installation is needed.
 2. Same DApp experience across desktop computer and mobile devices.
@@ -91,10 +98,7 @@ Q: Is a hardware Ledger safe to be used in TezBridge?
 
 A: For a normal operation, Ledger will show a detailed operation information(transaction, origination). For a compound operation, both Ledger and TezBridge will show a base58 hash on each side for user to confirm.
 
+
 ## Contact
 
 Email: im`@`catsigma.com
-
-Riot: catsigma
-
-Tezos-dev slack: catsigma
