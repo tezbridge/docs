@@ -72,11 +72,26 @@ At the index page of TezBridge, go **Local managers -> your manager**.
 ### Local signer
 Using previously added local managers to sign the request operations.
 
+---
+At the signer page of TezBridge, go **Choose signer -> Local managers  -> your manager -> unlock with password -> use as signer**.
+
+<gif-loader src="/imgs/use_local_signer.gif" />
+
 ### Hardware signer
 Using Hardware(Ledger) to sign the request operations.
 
+---
+At the signer page of TezBridge, go **Choose signer -> Hardware signer  -> Ledger -> Connect Ledger**.
+
+<gif-loader src="/imgs/use_hardware_signer.gif" />
+
 ### Temporary signer
 Using a temporary added secret key to sign the request operations.
+
+---
+At the signer page of TezBridge, go **Choose signer -> Temporary signer**.
+
+<gif-loader src="/imgs/use_temp_signer.gif" />
 
 ### Remote signer
 Using a remote device in LAN to sign the request operations.
