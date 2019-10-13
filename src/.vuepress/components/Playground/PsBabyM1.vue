@@ -6,7 +6,7 @@
     <div v-if="opened">
       <div class="block">
         <h2>How to get the source</h2>
-        <p>Source is the account that the user is using to do transactions. In <b>PsBABY5H</b>, only `tz` account is allowed to be the source.</p>
+        <p>Source is the account that the user is using to do transactions. In <b>PsBabyM1</b>, only `tz` account is allowed to be the source.</p>
         <prism-editor class="editor" v-model="codes.get_source" language="js"></prism-editor>
         <button @click="runCode('get_source')">Get the source</button>
         <pre class="output">Output:
@@ -24,7 +24,7 @@
       
       <div class="block">
         <h2>How to set delegate for source</h2>
-        <p>In <b>PsBABY5H</b>, we can only set delegate for `tz` account.</p>
+        <p>In <b>PsBabyM1</b>, we can only set delegate for `tz` account.</p>
         <prism-editor class="editor" v-model="codes.set_delegate" language="js"></prism-editor>
         <button @click="runCode('set_delegate')">Set delegate</button>
         <pre class="output">Output:
@@ -72,7 +72,7 @@
 
       <div class="block">
         <h2>How to transfer from a KT1 account</h2>
-        <p>In <b>PsBABY5H</b>, KT1 account cannot be source anymore. So we can use the method below to transfer XTZ to any account with <b>unit %default</b> entrypoint from your KT1 account.</p>
+        <p>In <b>PsBabyM1</b>, KT1 account cannot be source anymore. So we can use the method below to transfer XTZ to any account with <b>unit %default</b> entrypoint from your KT1 account.</p>
         <prism-editor class="editor" v-model="codes.make_transaction_KT1" language="js"></prism-editor>
         <button @click="runCode('make_transaction_KT1')">Transfer from KT1</button>
         <pre class="output">Output:
@@ -112,7 +112,7 @@ export default {
         set_host:
 `tezbridge.request({
   method: 'set_host',
-  host: 'https://zeronet-node.tzscan.io'
+  host: 'https://babylonnet-node.tzscan.io'
 })
 .then(address => output(address))
 .catch(err => output(err))
