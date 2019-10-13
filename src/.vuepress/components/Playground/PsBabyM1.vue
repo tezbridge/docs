@@ -195,7 +195,7 @@ export default {
     {
       kind: 'transaction',
       amount: '0',
-      destination: 'KT1JcVES62nyPqb3JaY2AzVQKmJdj1Ta22Sg',
+      destination: 'KT1DQstuXVVHsA4nVEa5C2EKf5sjrgSHCcSN',
       parameters: {
         entrypoint: 'second',
         value: {int: '1'}
