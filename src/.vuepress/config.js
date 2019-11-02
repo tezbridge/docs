@@ -39,10 +39,12 @@ module.exports = {
         ]
       },
       {
-        title: 'Complete sample',
+        title: 'DApp from scratch',
         collapsable: false,
         children: [
-          '/sample'
+          '/dapp/preparation',
+          '/dapp/structure',
+          '/dapp/sample_hodl'
         ]
       }
     ]
