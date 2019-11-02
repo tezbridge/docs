@@ -103,7 +103,7 @@ export default {
         set_host:
 `tezbridge.request({
   method: 'set_host',
-  host: 'https://alphanet-node.tzscan.io'
+  host: 'https://mainnet.tezrpc.me'
 })
 .then(address => output(address))
 .catch(err => output(err))

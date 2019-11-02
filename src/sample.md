@@ -23,7 +23,7 @@ Tags:
 ## Step1: Preparation
 1. Go to [https://faucet.tzalpha.net](https://faucet.tzalpha.net) and get a facuet JSON file.
 2. Open [https://www.tezbridge.com](https://www.tezbridge.com).
-3. Check **Settings > Host** and make sure it's an `alphanet` RPC host. (Like `https://alphanet.tezrpc.me` or `https://alphanet-node.tzscan.io`) <b class="mark signer"></b>
+3. Check **Settings > Host** and make sure it's an `alphanet` RPC host. (Like `https://rpcalpha.tzbeta.net`) <b class="mark signer"></b>
 4. Click **Import key** and paste the content of the facuet JSON file in the input box. Then set the **Manager name** as `FacuetA`, type the locking password and press **Confirm**. (If this manager hasn't been activated before, TezBridge will automatically activate it for you. But it takes one block to confirm the activation.) <b class="mark signer"></b>
 5. After the activation is finished (about one minute), you can check the manager balance by clicking **Local managers > FaucetA > tz1...** <b class="mark signer"></b>
 

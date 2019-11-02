@@ -88,7 +88,7 @@ Q: What if the server of TezBridge was attacked by hacker?
 A: TezBridge is purely static website hosted in Github page with a cloudflare CDN. So there's no server in TezBridge. All possible network connection targets are listed here:
 
 * Tezos official RPC node
-* tzscan.io
+* tezos.id
 * Cloudflare CDN / Github page
 * Netlify lambda function (used for simple remote bridging)
 
