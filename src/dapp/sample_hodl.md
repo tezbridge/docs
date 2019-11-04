@@ -63,13 +63,150 @@ Compile the mligo file with this command:
 ligo compile-contract --michelson-format=json hodl.mligo main > hodl.json
 ```
 
-Now we get a compiled file named **`hodl.json`**.
+Then we can get a compiled file named **`hodl.json`**.
 
 Then let's get the initial storage:
 ```sh
-ligo compile-storage --michelson-format=json hodl.mligo main '("PUT THE FaucetA ADDRESS HERE!!!", 0)' > hodl.storage.json
+ligo compile-storage --michelson-format=json hodl.mligo main '{owner = "PUT THE FaucetA ADDRESS HERE!!!"; locker = 0}' > hodl.storage.json
 ```
 
-Now we get a compiled file named **`hodl.storage.json`**.
+Then we can get a compiled file named **`hodl.storage.json`**.
+
+With the two json files, you can originate the contract though [this steps](/dapp/originate_contract) and get the originated contract result back.
+
+Keep the originated contract address, we'll use it soon.
 
 ## HTML creation
+
+Create a HTML named `hodl.html`:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HODL</title>
+  <script src="https://www.tezbridge.com/plugin.js"></script>
+</head>
+<body>
+  <div>
+    state: <span id="state"></span>
+  </div>
+  <div>
+    source: <span id="source"></span>
+    <button onclick="getSource()">Get source</button>
+  </div>
+  <div>
+    <input id="deposit_amount" type="number" />mutez
+    <button onclick="deposit()">Deposit</button>
+  </div>
+  <div>
+    <input id="withdraw_amount" type="number" />mutez
+    <button onclick="withdraw()">Withdraw</button>
+  </div>
+  <div>
+    <input id="lock_time" type="datetime-local" />
+    <button onclick="setLocker()">Set time lock</button>
+  </div>
+  <script>
+    const hodl_contract = '!!! Put the originated contract address here !!!'
+    const elems = {
+      state: document.getElementById('state'),
+      source: document.getElementById('source'),
+      deposit_amount: document.getElementById('deposit_amount'),
+      withdraw_amount: document.getElementById('withdraw_amount'),
+      lock_time: document.getElementById('lock_time')
+    }
+
+    function getSource() {
+      tezbridge.request({method: 'get_source'})
+      .then(address => elems.source.innerHTML = address)
+      .catch(error => elems.state.innerHTML = error.toString())
+    }
+
+    function deposit(){
+      // The type of amount should be string which repesents `mutez`(1/1000000XTZ)
+      const amount = parseInt(elems.deposit_amount.value).toString()
+
+      tezbridge.request({
+        method: 'inject_operations',
+        operations: [
+          {
+            kind: 'transaction',
+            destination: hodl_contract,
+            amount: amount,
+            parameters: {
+              entrypoint: 'deposit',
+              value: {"prim":"Unit"}
+            }
+          }
+        ]
+      })
+      .then(result => elems.state.innerHTML = JSON.stringify(result))
+      .catch(error => elems.state.innerHTML = error.toString())
+    }
+
+    function withdraw() {
+      // The type of amount should be string which repesents `mutez`(1/1000000XTZ)
+      const amount = parseInt(elems.withdraw_amount.value).toString()
+
+      tezbridge.request({
+        method: 'inject_operations',
+        operations: [
+          {
+            kind: 'transaction',
+            amount: '0',
+            destination: hodl_contract,
+            parameters: {
+              entrypoint: 'withdraw',
+              value: {int: amount}
+            }
+          }
+        ]
+      })
+      .then(result => elems.state.innerHTML = JSON.stringify(result))
+      .catch(error => elems.state.innerHTML = error.toString())
+    }
+
+    function setLocker() {
+      const timestamp = (+new Date(elems.lock_time.value) / 1000).toString()
+
+      tezbridge.request({
+        method: 'inject_operations',
+        operations: [
+          {
+            kind: 'transaction',
+            amount: '0',
+            destination: hodl_contract,
+            parameters: {
+              entrypoint: 'set_locker',
+              value: {int: timestamp}
+            }
+          }
+        ]
+      })
+      .then(result => elems.state.innerHTML = JSON.stringify(result))
+      .catch(error => elems.state.innerHTML = error.toString())
+    }
+  </script>
+</body>
+</html>
+```
+
+## HTML interaction
+
+Host the `hodl.html` file.
+For python users
+```
+python -m SimpleHTTPServer 1234
+```
+
+For npm package http-server users
+```
+hs -p 1234
+```
+
+For parcel-bundler users
+```
+parcel hodl.html
+```
+
+Now open [http://localhost:1234/hodl.html](http://localhost:1234/hodl.html) to view the HODL page and try the DApp you just built.

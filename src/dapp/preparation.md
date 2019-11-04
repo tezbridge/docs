@@ -24,6 +24,9 @@ Let's create a file named `tool.html` for further usage:
 <head>
   <title>My Tezos DApp tool</title>
   <script src="https://www.tezbridge.com/plugin.js"></script>
+  <style>
+    textarea {font-family: monospace; width: 300px; height: 300px}
+  </style>
 </head>
 <body>
   <textarea id="code" placeholder="Smart contract JSON"></textarea>
@@ -62,20 +65,3 @@ Let's create a file named `tool.html` for further usage:
 </html>
 ```
 
-### Host the `tool.html` file
-#### For python users
-```
-python -m SimpleHTTPServer 1234
-```
-
-#### For npm package `http-server` users
-```
-hs -p 1234
-```
-
-#### For parcel-bundler users
-```
-parcel tool.html
-```
-
-Now open [http://localhost:1234/tool.html](http://localhost:1234/tool.html) to view the tool page.

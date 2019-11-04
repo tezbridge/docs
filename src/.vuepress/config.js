@@ -44,7 +44,8 @@ module.exports = {
         children: [
           '/dapp/preparation',
           '/dapp/structure',
-          '/dapp/sample_hodl'
+          '/dapp/sample_hodl',
+          '/dapp/originate_contract',
         ]
       }
     ]
