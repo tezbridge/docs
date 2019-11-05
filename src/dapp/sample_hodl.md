@@ -72,7 +72,7 @@ ligo compile-storage --michelson-format=json hodl.mligo main '{owner = "PUT THE 
 
 Then we can get a compiled file named **`hodl.storage.json`**.
 
-With the two json files, you can originate the contract though [this steps](/dapp/originate_contract) and get the originated contract result back.
+With the two json files, you can originate the contract though [these steps](/dapp/originate_contract) and get the originated contract result back.
 
 Keep the originated contract address, we'll use it soon.
 
