@@ -146,7 +146,7 @@ Create a HTML named `module.html`:
 </html>
 ```
 
-## HTML interaction
+## HTML hosting
 
 Host the `module.html` file.
 For python users
@@ -167,3 +167,8 @@ parcel module.html
 Now open [http://localhost:1234/module.html](http://localhost:1234/module.html) to view the `Contract as module` page and try the DApp you just built.
 
 **Tips**: [https://better-call.dev/](https://better-call.dev/) is highly recommended for result inspection. Just throw your contract address in the search bar and select the correct chain net(testnet/alphanet/babylon), then every detailed transaction will be displayed.
+
+
+## Interacting demo
+
+<gif-loader src="/imgs/sample_module.gif" />

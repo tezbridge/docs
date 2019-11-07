@@ -191,7 +191,7 @@ Create a HTML named `hodl.html`:
 </html>
 ```
 
-## HTML interaction
+## HTML hosting
 
 Host the `hodl.html` file.
 For python users
@@ -211,5 +211,8 @@ parcel hodl.html
 
 Now open [http://localhost:1234/hodl.html](http://localhost:1234/hodl.html) to view the HODL page and try the DApp you just built.
 
-
 **Tips**: [https://better-call.dev/](https://better-call.dev/) is highly recommended for result inspection. Just throw your contract address in the search bar and select the correct chain net(testnet/alphanet/babylon), then every detailed transaction will be displayed.
+
+## Interacting demo
+
+<gif-loader src="/imgs/sample_hodl.gif" />

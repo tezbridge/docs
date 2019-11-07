@@ -99,6 +99,13 @@ Using a remote device in LAN to sign the request operations.
 ---
 <gif-loader src="/imgs/use_remote_signer.gif" />
 
+## DApp interaction
+Interaction with a web DApp.
+
+---
+<gif-loader src="/imgs/dapp_interaction.gif" />
+
+
 ## Settings
 ### Languages
 TezBridge now supports both English and Chinese. When it becomes more stable, more translations will be added.
