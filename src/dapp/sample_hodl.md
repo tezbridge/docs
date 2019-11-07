@@ -1,6 +1,6 @@
 # DApp sample: HODL my XTZs
 
-The DApp contains a `hodl.html` HTML file and a `hodl.mligo` smart contract file.
+This DApp contains a `hodl.html` HTML file and a `hodl.mligo` smart contract file.
 
 ## Target
 Let's create a simple XTZs HODL smart contract for ourselves. 
@@ -210,3 +210,6 @@ parcel hodl.html
 ```
 
 Now open [http://localhost:1234/hodl.html](http://localhost:1234/hodl.html) to view the HODL page and try the DApp you just built.
+
+
+**Tips**: [https://better-call.dev/](https://better-call.dev/) is highly recommended for result inspection. Just throw your contract address in the search bar and select the correct chain net(testnet/alphanet/babylon), then every detailed transaction will be displayed.

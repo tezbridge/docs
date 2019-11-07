@@ -45,6 +45,7 @@ module.exports = {
           '/dapp/preparation',
           '/dapp/structure',
           '/dapp/sample_hodl',
+          '/dapp/sample_module',
           '/dapp/originate_contract',
         ]
       }
