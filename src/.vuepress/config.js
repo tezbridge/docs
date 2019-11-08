@@ -28,7 +28,9 @@ module.exports = {
         title: 'Developer manual',
         collapsable: false,
         children: [
-          '/developer'
+          '/developer/getting_started',
+          '/developer/tezbridge_crypto',
+          '/developer/tezbridge_network'
         ]
       },
       {
