@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>TezBridge network lib API | TezBridge</title>
+    <meta name="description" content="">
+    <link rel="icon" href="https://www.tezbridge.com/favicon.90b42df8.png">
+  <script src="https://www.tezbridge.com/plugin.js"></script>
+    
+    <link rel="preload" href="/assets/css/0.styles.fa6d08d7.css" as="style"><link rel="preload" href="/assets/js/app.bc2155ae.js" as="script"><link rel="preload" href="/assets/js/4.64c98ff8.js" as="script"><link rel="preload" href="/assets/js/19.343b25be.js" as="script"><link rel="prefetch" href="/assets/js/1.04b79743.js"><link rel="prefetch" href="/assets/js/10.a7726f48.js"><link rel="prefetch" href="/assets/js/11.07fb2cb7.js"><link rel="prefetch" href="/assets/js/12.f150f22b.js"><link rel="prefetch" href="/assets/js/13.0f9f638b.js"><link rel="prefetch" href="/assets/js/14.2cfc61e5.js"><link rel="prefetch" href="/assets/js/15.a87badf3.js"><link rel="prefetch" href="/assets/js/16.09dc0c88.js"><link rel="prefetch" href="/assets/js/17.77404a55.js"><link rel="prefetch" href="/assets/js/18.3388e236.js"><link rel="prefetch" href="/assets/js/2.d622cbd3.js"><link rel="prefetch" href="/assets/js/20.d1c2872b.js"><link rel="prefetch" href="/assets/js/21.83d37f8d.js"><link rel="prefetch" href="/assets/js/22.9aa24222.js"><link rel="prefetch" href="/assets/js/23.9cd88055.js"><link rel="prefetch" href="/assets/js/5.b5ca12fe.js"><link rel="prefetch" href="/assets/js/6.b685fcd0.js"><link rel="prefetch" href="/assets/js/7.b3f77a93.js"><link rel="prefetch" href="/assets/js/8.003de0e0.js"><link rel="prefetch" href="/assets/js/9.1a96b655.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.fa6d08d7.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="https://avatars2.githubusercontent.com/u/33521489?s=200&amp;v=4" alt="TezBridge" class="logo"> <span class="site-name can-hide">TezBridge</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://github.com/tezbridge" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://github.com/tezbridge" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Guide</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/" class="sidebar-link">Introduction</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>User manual</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/user.html" class="sidebar-link">Features</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Developer manual</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/developer/getting_started.html" class="sidebar-link">Getting started</a></li><li><a href="/developer/tezbridge_crypto.html" class="sidebar-link">TezBridge crypto lib API</a></li><li><a href="/developer/tezbridge_network.html" class="active sidebar-link">TezBridge network lib API</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/developer/tezbridge_network.html#installation" class="sidebar-link">Installation</a></li><li class="sidebar-sub-header"><a href="/developer/tezbridge_network.html#import" class="sidebar-link">Import</a></li><li class="sidebar-sub-header"><a href="/developer/tezbridge_network.html#api-reference" class="sidebar-link">API reference</a></li></ul></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Playground</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/playground.html" class="sidebar-link">Playground</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>DApp from scratch</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/dapp/preparation.html" class="sidebar-link">Preparation</a></li><li><a href="/dapp/structure.html" class="sidebar-link">DApp structure</a></li><li><a href="/dapp/sample_hodl.html" class="sidebar-link">DApp sample: HODL my XTZs</a></li><li><a href="/dapp/sample_module.html" class="sidebar-link">DApp sample: Contract as module</a></li><li><a href="/dapp/originate_contract.html" class="sidebar-link">* Originate your smart contract</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="tezbridge-network-lib-api"><a href="#tezbridge-network-lib-api" aria-hidden="true" class="header-anchor">#</a> TezBridge network lib API</h1> <h2 id="installation"><a href="#installation" aria-hidden="true" class="header-anchor">#</a> Installation</h2> <div class="language- extra-class"><pre class="language-text"><code>npm i tezbridge-network
+</code></pre></div><h2 id="import"><a href="#import" aria-hidden="true" class="header-anchor">#</a> Import</h2> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">import</span> <span class="token constant">TBN</span> <span class="token keyword">from</span> <span class="token string">'tezbridge-network/PsBabyM1'</span>
+<span class="token keyword">const</span> network_client <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TezBridgeNetwork</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  host<span class="token punctuation">:</span> <span class="token string">'https://mainnet.tezrpc.me'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>To directly import <code>tezbridge-network/{procotol}</code>, you have to install 2 babel plugins which are <code>@babel/plugin-transform-runtime</code> and <code>@babel/plugin-transform-flow-strip-types</code>.</p> <h2 id="api-reference"><a href="#api-reference" aria-hidden="true" class="header-anchor">#</a> API reference</h2> <h3 id="network-client-fetch"><a href="#network-client-fetch" aria-hidden="true" class="header-anchor">#</a> network_client.fetch</h3> <h4 id="network-client-fetch-custom-path"><a href="#network-client-fetch-custom-path" aria-hidden="true" class="header-anchor">#</a> <code>network_client.fetch.custom(path)</code></h4> <p>Access content with the passing path</p> <h4 id="network-client-fetch-head-sub-path"><a href="#network-client-fetch-head-sub-path" aria-hidden="true" class="header-anchor">#</a> <code>network_client.fetch.head(sub_path?)</code></h4> <p>Get the whole content of head block</p> <h4 id="network-client-fetch-hash"><a href="#network-client-fetch-hash" aria-hidden="true" class="header-anchor">#</a> <code>network_client.fetch.hash()</code></h4> <p>Get head block hash in main chain</p> <h4 id="network-client-fetch-header"><a href="#network-client-fetch-header" aria-hidden="true" class="header-anchor">#</a> <code>network_client.fetch.header()</code></h4> <p>Get the header of head block in main chain</p> <h4 id="network-client-fetch-protocol"><a href="#network-client-fetch-protocol" aria-hidden="true" class="header-anchor">#</a> <code>network_client.fetch.protocol()</code></h4> <p>Get current protocol used in main chain</p> <h4 id="network-client-fetch-predecessor"><a href="#network-client-fetch-predecessor" aria-hidden="true" class="header-anchor">#</a> <code>network_client.fetch.predecessor()</code></h4> <p>Get the predecessor of current head block</p> <h4 id="network-client-fetch-balance-address"><a href="#network-client-fetch-balance-address" aria-hidden="true" class="header-anchor">#</a> <code>network_client.fetch.balance(address)</code></h4> <p>Get the balance of the passing address</p> <h4 id="network-client-fetch-contract-address"><a href="#network-client-fetch-contract-address" aria-hidden="true" class="header-anchor">#</a> <code>network_client.fetch.contract(address)</code></h4> <p>Get the contract information of the padding address</p> <h4 id="network-client-fetch-contract-bytes-hash-url-sub-path"><a href="#network-client-fetch-contract-bytes-hash-url-sub-path" aria-hidden="true" class="header-anchor">#</a> <code>network_client.fetch.contract_bytes(hash_url, sub_path?)</code></h4> <p>Get the contract raw bytes of the passing hash_url</p> <p><strong>hash_url</strong>: a special hex representation of contract hash. (eg: <code>3e/e2/31/36/6b/1336eb61419df8fc666056025929bf</code>)
+You can generate such hash with the npm package <code>tezbridge-crypto</code>.</p> <h4 id="network-client-fetch-storage-bytes-hash-url"><a href="#network-client-fetch-storage-bytes-hash-url" aria-hidden="true" class="header-anchor">#</a> <code>network_client.fetch.storage_bytes(hash_url)</code></h4> <p>Get the storage raw bytes of the contract</p> <h4 id="network-client-fetch-big-map-bytes-hash-url"><a href="#network-client-fetch-big-map-bytes-hash-url" aria-hidden="true" class="header-anchor">#</a> <code>network_client.fetch.big_map_bytes(hash_url)</code></h4> <p>Get the big_map raw bytes of the contract</p> <h4 id="network-client-fetch-manager-key-address"><a href="#network-client-fetch-manager-key-address" aria-hidden="true" class="header-anchor">#</a> <code>network_client.fetch.manager_key(address)</code></h4> <p>Get the manager key hash of the passing address</p> <h4 id="network-client-fetch-counter-address"><a href="#network-client-fetch-counter-address" aria-hidden="true" class="header-anchor">#</a> <code>network_client.fetch.counter(address)</code></h4> <p>Get the counter value of the passing address</p> <h3 id="network-client-submit"><a href="#network-client-submit" aria-hidden="true" class="header-anchor">#</a> network_client.submit</h3> <h4 id="network-client-submit-pack-data-data-json-type-json"><a href="#network-client-submit-pack-data-data-json-type-json" aria-hidden="true" class="header-anchor">#</a> <code>network_client.submit.pack_data(data_json, type_json)</code></h4> <p>Get packed data of the passing JSON content from RPC node</p> <p><strong>data_json</strong> and <strong>type_json</strong> are all in Micheline type.</p> <p>example:</p> <div class="language- extra-class"><pre class="language-text"><code>data_json = { &quot;prim&quot;: &quot;Pair&quot;, &quot;args&quot;: [ { &quot;string&quot;: &quot;abc&quot; }, { &quot;int&quot;: &quot;34&quot; } ] }
+type_json = { &quot;prim&quot;: &quot;pair&quot;, &quot;args&quot;: [ { &quot;prim&quot;: &quot;string&quot; }, { &quot;prim&quot;: &quot;nat&quot; } ] }
+</code></pre></div><h4 id="network-client-submit-forge-operation-head-hash-ops"><a href="#network-client-submit-forge-operation-head-hash-ops" aria-hidden="true" class="header-anchor">#</a> <code>network_client.submit.forge_operation(head_hash, ops)</code></h4> <p>Forge operation to get bytes.</p> <p><strong>head_hash</strong> is the hash of head block and <strong>ops</strong> is the the Michline operations in array.</p> <h4 id="network-client-submit-preapply-operation-head-hash-ops-protocol-signature"><a href="#network-client-submit-preapply-operation-head-hash-ops-protocol-signature" aria-hidden="true" class="header-anchor">#</a> <code>network_client.submit.preapply_operation(head_hash, ops, protocol, signature)</code></h4> <p>Preapply operations to get results.</p> <h4 id="network-client-submit-inject-operation-signed-op"><a href="#network-client-submit-inject-operation-signed-op" aria-hidden="true" class="header-anchor">#</a> <code>network_client.submit.inject_operation(signed_op)</code></h4> <p>Inject signed operation.</p> <h3 id="network-client-mixed"><a href="#network-client-mixed" aria-hidden="true" class="header-anchor">#</a> network_client.mixed</h3> <h4 id="network-client-mixed-makeoperationbytes-param-op-params"><a href="#network-client-mixed-makeoperationbytes-param-op-params" aria-hidden="true" class="header-anchor">#</a> <code>network_client.mixed.makeOperationBytes(param, op_params)</code></h4> <p>Create operation bytes though remote RPC node.</p> <p>Arguments types:</p> <div class="language- extra-class"><pre class="language-text"><code>param: {
+  source : string,
+  public_key: string
+}
+
+op_params: Array&lt;{
+  kind : 'reveal' | 'origination' | 'transaction',
+  ...any
+}&gt;
+</code></pre></div><h4 id="network-client-mixed-maketransactionbytes-param-op-param"><a href="#network-client-mixed-maketransactionbytes-param-op-param" aria-hidden="true" class="header-anchor">#</a> <code>network_client.mixed.makeTransactionBytes(param, op_param)</code></h4> <p>Arguments types:</p> <div class="language- extra-class"><pre class="language-text"><code>param: {
+  source : string,
+  public_key: string
+}
+
+op_param: {
+  fee?: string,
+  gas_limit?: string,
+  storage_limit?: string,
+  amount: string,
+  destination: string,
+  parameters?: Micheline
+}
+</code></pre></div><h4 id="network-client-mixed-makeoriginationbytes-param-op-param"><a href="#network-client-mixed-makeoriginationbytes-param-op-param" aria-hidden="true" class="header-anchor">#</a> <code>network_client.mixed.makeOriginationBytes(param, op_param)</code></h4> <p>Arguments types:</p> <div class="language- extra-class"><pre class="language-text"><code>param: {
+  source : string,
+  public_key: string
+}
+
+op_param: {
+  fee?: string,
+  gas_limit?: string,
+  storage_limit?: string,
+  managerPubkey?: string,
+  balance?: string,
+  spendable?: boolean,
+  delegatable?: boolean,
+  delegate?: string,
+  script?: Micheline
+}
+</code></pre></div><h4 id="network-client-mixed-makeminfeeoperation-tbc-source-param-op-param"><a href="#network-client-mixed-makeminfeeoperation-tbc-source-param-op-param" aria-hidden="true" class="header-anchor">#</a> <code>network_client.mixed.makeMinFeeOperation(TBC, source, param, op_param)</code></h4> <p>Arguments types:</p> <div class="language- extra-class"><pre class="language-text"><code>TBC: TezBridgeCrypto package object
+
+source: string | null
+
+secret_key: string
+
+op_param: {
+  fee?: string,
+  gas_limit?: string,
+  storage_limit?: string,
+  managerPubkey?: string,
+  balance?: string,
+  spendable?: boolean,
+  delegatable?: boolean,
+  delegate?: string,
+  script?: Micheline
+}
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/developer/tezbridge_crypto.html" class="prev">
+          TezBridge crypto lib API
+        </a></span> <span class="next"><a href="/playground.html">
+          Playground
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.bc2155ae.js" defer></script><script src="/assets/js/4.64c98ff8.js" defer></script><script src="/assets/js/19.343b25be.js" defer></script>
+  </body>
+</html>
