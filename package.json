@@ -17,10 +17,10 @@
   },
   "homepage": "https://github.com/tezbridge/docs#readme",
   "devDependencies": {
-    "vuepress": "^1.0.2"
+    "vuepress": "^1.2.0"
   },
   "dependencies": {
-    "prismjs": "^1.17.1",
+    "prismjs": "^1.18.0",
     "vue-prism-editor": "^0.3.0"
   }
 }
