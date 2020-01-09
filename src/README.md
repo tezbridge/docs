@@ -87,10 +87,37 @@ Q: What if the server of TezBridge was attacked by hacker?
 
 A: TezBridge is purely static website hosted in Github page with a cloudflare CDN. So there's no server in TezBridge. All possible network connection targets are listed here:
 
-* Tezos official RPC node
-* tezos.id
-* Cloudflare CDN / Github page
-* Netlify lambda function (used for simple remote bridging)
+<table>
+  <tr>
+    <th>Tezos RPC node</th>
+    <td>
+      Several RPC interfaces are used in RPC node
+      <p>
+        /chains/main/blocks/head/context/contracts/{contract}/counter
+        /chains/main/blocks/head/context/contracts/{contract}/manager_key
+        /chains/main/blocks/head/header
+        /chains/main/blocks/head/context/contracts/{manager}/balance
+        /chains/main/blocks/head/helpers/forge/operations
+        /chains/main/blocks/head/helpers/scripts/run_operation
+        /chains/main/blocks/head/helpers/preapply/operations
+        /injection/operation
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <th>Cloudflare CDN / Github page</th>
+    <td>TezBridge is served by Github page and Cloudflare CDN</td>
+  </tr>
+  <tr>
+    <th>tezos.id</th>
+    <td>Used for checking originated contract list</td>
+  </tr>
+  <tr>
+    <th>Netlify lambda function</th>
+    <td>Used for simple remote bridging</td>
+  </tr>
+</table>
+
 
 --- 
 

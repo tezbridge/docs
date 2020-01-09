@@ -1,5 +1,8 @@
 # Playground
 
+## PsCARTHA
+<Playground-PsCARTHA />
+
 ## PsBabyM1
 <Playground-PsBabyM1 />
 
