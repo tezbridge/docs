@@ -25,7 +25,7 @@ type main_entries =
 
 type lib_entries = int * int
 
-let%entry main (p : main_entries) storage = 
+let main (p : main_entries) storage = 
   match p with
   | Request req_params ->
     let lib_contract : lib_entries contract = Operation.get_contract storage.lib_addr in
@@ -48,7 +48,7 @@ type main_entries =
 
 type lib_entries = int * int
 
-let%entry main (p : lib_entries) storage = 
+let main (p : lib_entries) storage = 
   let callback_contract : main_entries contract = Operation.get_contract sender in
   [Operation.transaction (Update (p.(0) + p.(1))) 0tz callback_contract], storage
 

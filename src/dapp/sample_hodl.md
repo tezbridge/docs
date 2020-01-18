@@ -31,7 +31,7 @@ type entries =
 | Withdraw of tez
 | Set_locker of timestamp
 
-let%entry main (p : entries) storage = 
+let main (p : entries) storage = 
   match p with
   | Deposit unit ->
     ([] : operation list), storage
