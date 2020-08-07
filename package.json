@@ -20,7 +20,7 @@
     "vuepress": "^1.2.0"
   },
   "dependencies": {
-    "prismjs": "^1.18.0",
+    "prismjs": "^1.21.0",
     "vue-prism-editor": "^0.3.0"
   }
 }
