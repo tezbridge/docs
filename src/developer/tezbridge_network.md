@@ -9,7 +9,7 @@ npm i tezbridge-network
 ```javascript
 import TBN from 'tezbridge-network/PsBabyM1'
 const network_client = new TezBridgeNetwork({
-  host: 'https://mainnet.tezrpc.me'
+  host: 'https://testnet-tezos.giganode.io'
 })
 ```
 
